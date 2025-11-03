@@ -75,12 +75,14 @@ export const updateStatusBarForTheme = async () => {
   try {
     const isDark = document.documentElement.classList.contains('dark');
     
-    // Make status bar overlay content for edge-to-edge experience
-    await StatusBar.setOverlaysWebView({ overlay: true });
+    // Don't overlay content - give status bar its own space
+    await StatusBar.setOverlaysWebView({ overlay: false });
     
     // Set status bar style based on theme
+    // Light style = light icons/text (for dark backgrounds)
+    // Dark style = dark icons/text (for light backgrounds)
     await StatusBar.setStyle({ 
-      style: isDark ? Style.Dark : Style.Light 
+      style: isDark ? Style.Light : Style.Dark 
     });
     
     // For Android, set background color based on theme
