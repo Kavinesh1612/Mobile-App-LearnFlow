@@ -88,7 +88,7 @@ export const updateStatusBarForTheme = async () => {
     // For Android, set background color based on theme
     if (Capacitor.getPlatform() === 'android') {
       await StatusBar.setBackgroundColor({ 
-        color: isDark ? '#1a0f2e' : '#ffffff' 
+        color: isDark ? '#1a0f2e' : '#ede9fe' 
       });
     }
   } catch (error) {
